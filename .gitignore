@@ -1,0 +1,50 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environment directories
+.env
+.venv
+env/
+venv/
+ENV/
+mlops/
+
+# Data
+data/*.csv
+data/*.parquet
+data/*.json
+*.csv
+*.parquet
+*.json
+
+# Model files
+models/*.pkl
+models/*.joblib
+*.pkl
+*.joblib
+
+# MLflow
+mlruns/
+
+# OS specific
+.DS_Store
