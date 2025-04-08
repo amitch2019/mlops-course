@@ -1,4 +1,5 @@
 stages:
+  # Existing stages remain here...
   prepare:
     cmd: python src/create_features.py
     deps:
@@ -9,3 +10,18 @@ stages:
       - data/pipeline.pkl
       - data/processed_train_data.csv
       - data/processed_test_data.csv
+      
+  # New stage
+  preprocess_wine:
+    cmd: python src/preprocessing_winedata.py
+    deps:
+      - data/wine_quality.csv
+      - src/preprocessing_winedata.py
+    outs:
+      - data/splits/train_data.csv
+      - data/splits/val_data.csv
+      - data/splits/test_data.csv
+      - data/processed/train_scaled.csv
+      - data/processed/val_scaled.csv
+      - data/processed/test_scaled.csv
+      - models/scaler.pkl

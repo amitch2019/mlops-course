@@ -15,6 +15,11 @@ stages:
       hash: md5
       md5: b93aea27ba45f8b24bdd52928f1f2b99
       size: 2564
+    params:
+      params.yaml:
+        features.chi2percentile: 50
+        features.test_path: data/adult.test
+        features.train_path: data/adult.data
     outs:
     - path: data/pipeline.pkl
       hash: md5
@@ -28,3 +33,43 @@ stages:
       hash: md5
       md5: adf63b6ce20f7ee74f63d5dabb325226
       size: 10829967
+  preprocess_wine:
+    cmd: python src/preprocessing_winedata.py
+    deps:
+    - path: data/wine_quality.csv
+      hash: md5
+      md5: 19d393fce132527dffb9b685be597c7a
+      size: 415030
+    - path: src/preprocessing_winedata.py
+      hash: md5
+      md5: c4711290118e3d58d95b46829c688cfd
+      size: 2630
+    outs:
+    - path: data/processed/test_scaled.csv
+      hash: md5
+      md5: 630e302691d68d5715c07693545d7f66
+      size: 232266
+    - path: data/processed/train_scaled.csv
+      hash: md5
+      md5: 21105f75c87d2eba8ec107296d2ac58f
+      size: 1082907
+    - path: data/processed/val_scaled.csv
+      hash: md5
+      md5: b11e263b442cc5d55870611528ba2ba9
+      size: 232239
+    - path: data/splits/test_data.csv
+      hash: md5
+      md5: 7a6ece809ac276dff3f8395adf2c97b7
+      size: 59063
+    - path: data/splits/train_data.csv
+      hash: md5
+      md5: 06aeab84291cb95d5199af80885885fd
+      size: 274561
+    - path: data/splits/val_data.csv
+      hash: md5
+      md5: d4b88225a472868e86a0c9c9241a6dda
+      size: 58918
+    - path: models/scaler.pkl
+      hash: md5
+      md5: f72fafff0ea28c235f20639e026c2bd5
+      size: 991
