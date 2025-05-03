@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reddit-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reddit
+  template:
+    metadata:
+      labels:
+        app: reddit
+    spec:
+      containers:
+      - name: reddit-container
+        image: us-west1-docker.pkg.dev/lab9-458018/reddit-app-repo/reddit-fastapi-app:latest
+        ports:
+        - containerPort: 8000
+
+
+
